@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Section Counts</title>
+</head>
+<body>
+    <h1>Class-wise Section Counts</h1>
+    <ul>
+        {% for class_count in class_counts %}
+            <li>{{ class_count.class_name }} - Section Count: {{ class_count.section_count }}</li>
+            <ul>
+                {% for section in class_count.sections %}
+                    <li>{{ section }}</li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    </ul>
+</body>
+</html>
