@@ -7,13 +7,15 @@ from .models import Section_class
 def create_section(request):
     if request.method == 'POST':
         form = SectionForm(request.POST)
+        print(form)
         if form.is_valid():
             section = form.save(commit=False)
+            print(section)
             section.save()  # Save the section first without the class_name relationship
-
+            print("Looking for: ", type(request.POST.getlist('class_name')))
             # Add the selected classes to the section
             for class_name in request.POST.getlist('class_name'):
-                section.class_name.add(class_name)
+                section.class_name.add(str(class_name))
 
             form.save_m2m()  # Save the many-to-many relationships
 

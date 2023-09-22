@@ -74,7 +74,7 @@
             {% csrf_token %}
             <label for="{{ form.section_name.id_for_label }}">Section Name:</label>
             {{ form.section_name }}
-            <label for="{{ form.related_class.id_for_label }}">Related Class:</label>
+            <label for="{{ form.class_name.id_for_label }}">Related Class:</label>
             {{ form.class_name }}
             <button type="submit">Add Section</button>
         </form>
